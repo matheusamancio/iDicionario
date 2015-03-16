@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface LetraAViewController : UIViewController
-
+{
+      int indexx;
+}
+@property (strong,nonatomic) NSArray *alfabeto;
+@property (strong,nonatomic) NSArray *imagensAlfa;
+@property (strong,nonatomic) NSArray *frasesAlfa;
 @end

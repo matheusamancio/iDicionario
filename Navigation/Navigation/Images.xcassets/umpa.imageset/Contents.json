@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "desmotivaciones.mx_Umpa-Lumpa-Mejores-en-limpiezacantobailetrabajoen-la-cama-etc.-_133989109232.jpg"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "desmotivaciones.mx_Umpa-Lumpa-Mejores-en-limpiezacantobailetrabajoen-la-cama-etc.-_133989109232-1.jpg"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "desmotivaciones.mx_Umpa-Lumpa-Mejores-en-limpiezacantobailetrabajoen-la-cama-etc.-_133989109232-1-1.jpg"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

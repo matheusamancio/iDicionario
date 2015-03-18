@@ -13,7 +13,6 @@
 @synthesize alfabeto;
 @synthesize frasesAlfa;
 @synthesize imagensAlfa;
-
 -(void) viewDidLoad {
         [super viewDidLoad];
     
@@ -23,9 +22,13 @@
     frasesAlfa = [[NSArray alloc]init];
     imagensAlfa = [[NSArray alloc]init];
     
+    
     alfabeto = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
     
-    frasesAlfa = @[ @"A de amor",@"B de baixinho",@"C de coração",@"D de docinho",@"E de escola",@"F de feijão",@"G de gente",@"H de humano",@"I de igualdade",@"J juventude",@" L liberdade",@"M molecagem",@"N natureza ",@"O obrigado ",@"P proteção",@"Q de quero quero",@"R de riacho ",@" S saudade ",@" T de Terra",@"U de universo ",@"V de vitoria",@"W de Wolverine",@"X O que que é? - É Xuxa!",@"Z é zum, zum, zum, zum"];
+    frasesAlfa = @[ @"A de amor",@"B de baixinho",@"C de coração",@"D de docinho",@"E de escola",@"F de feijão",@"G de gente",@"H de humano",@"I de igualdade",@"J juventude",@"k de kiko",@" L de liberdade",@"k de kiko",@"M molecagem",@"N natureza ",@"O obrigado ",@"P proteção",@"Q de queijo",@"R de riacho ",@" S sadia ",@" T de Terra",@"U de universo ",@"V de vitoria",@"W de Wolverine",@"X O que que é? - É Xuxa!",@"youtube",@"Z é zum, zum, zum, zum"];
+    
+    imagensAlfa = @[@"arvore", @"bola", @"casa",@"dado",@"elefante",@"fanta",@"gordo",@"hidrante",@"iphone",@"jetski",@"kiko", @"leao", @"macaco", @"nariz",@"orelha", @"palhaco",@"queijo",@"requeijao", @"sal", @"tatu",@"umpa",@"vitoria", @"wolverine", @"xuxa", @"youtube",@"zebra"];
+    
     
     indexx  = self.navigationController.viewControllers.count-1;
     self.title = [alfabeto objectAtIndex: indexx];
@@ -39,11 +42,13 @@
     [letralabel setText:[alfabeto objectAtIndex:indexx]];
     letralabel.textAlignment = NSTextAlignmentCenter;
     letralabel.backgroundColor = [UIColor redColor];
-    
+  
+    //letra na tela
    letralabel.frame = CGRectMake( selfWidth/2 - 25, selfHeight/2 - 150, 50, 50);
-//    [letralabel sizeToFit];
+
     [self.view addSubview:letralabel];
     
+    //frase na tela
     UILabel *fraseLabel = [[UILabel alloc]init];
     [fraseLabel setText:[frasesAlfa objectAtIndex:indexx]];
     fraseLabel.textAlignment = NSTextAlignmentCenter;
@@ -51,8 +56,22 @@
     [fraseLabel sizeToFit];
     [self.view addSubview:fraseLabel];
 
- 
-}
+    //imagem na tela
+    
+    UIImage *myImage = [UIImage imageNamed:[imagensAlfa objectAtIndex:indexx]];
+    UIImageView *myImageView = [[UIImageView alloc] initWithImage:myImage];
+    fraseLabel.textAlignment = NSTextAlignmentCenter;
+    [myImageView setFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 + 50, 200, 200)];
+    [self.view addSubview:myImageView];
+  
+    
+//    UIImageView *imagem = [[UIImageView alloc] initWithFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 - 100,200,200)];
+//      
+//    imagem.image = [UIImage imageNamed:@"arvore"];
+//    //[imagensAlfa objectAtIndex: indexx]];
+    
+
+     }
 
 
 -(void)next:(id)sender {
@@ -67,7 +86,13 @@
     
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.view.backgroundColor = [UIColor redColor];
+    [UIView animateWithDuration:5.0 animations:^{
+        self.view.backgroundColor = [UIColor whiteColor];    }];
 
+}
 
 
 @end

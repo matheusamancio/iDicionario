@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "2011_kawasaki_jet_ski_sx_r_800_JS800ABFA_40054_A_OLRGB(1).jpg"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "2011_kawasaki_jet_ski_sx_r_800_JS800ABFA_40054_A_OLRGB(1)-1.jpg"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "2011_kawasaki_jet_ski_sx_r_800_JS800ABFA_40054_A_OLRGB(1)-1-1.jpg"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

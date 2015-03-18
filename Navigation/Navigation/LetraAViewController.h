@@ -15,4 +15,6 @@
 @property (strong,nonatomic) NSArray *alfabeto;
 @property (strong,nonatomic) NSArray *imagensAlfa;
 @property (strong,nonatomic) NSArray *frasesAlfa;
+
+
 @end

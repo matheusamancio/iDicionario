@@ -10,11 +10,14 @@
 
 @interface LetraAViewController : UIViewController
 {
-      int indexx;
+    int indexx;
+    
 }
 @property (strong,nonatomic) NSArray *alfabeto;
 @property (strong,nonatomic) NSArray *imagensAlfa;
 @property (strong,nonatomic) NSArray *frasesAlfa;
-
+@property (weak,nonatomic) NSTimer *timer;
+@property (strong, nonatomic)  UIImageView *myimageview;
+@property (strong, nonatomic)  UILabel *letralabel;
 
 @end

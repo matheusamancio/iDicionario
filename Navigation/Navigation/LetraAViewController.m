@@ -10,38 +10,47 @@
 #import "LetraBViewController.h"
 
 @implementation LetraAViewController
+
+
 @synthesize alfabeto;
 @synthesize frasesAlfa;
 @synthesize imagensAlfa;
+@synthesize timer;
+@synthesize myimageview;
+@synthesize letralabel;
+
+
 -(void) viewDidLoad {
-        [super viewDidLoad];    CGFloat selfHeight=self.view.bounds.size.height;
+    [super viewDidLoad];
+    CGFloat selfHeight=self.view.bounds.size.height;
     CGFloat selfWidth=self.view.bounds.size.width;
     alfabeto =[[NSArray alloc]init];
     frasesAlfa = [[NSArray alloc]init];
     imagensAlfa = [[NSArray alloc]init];
     
     
+
     alfabeto = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
     
-    frasesAlfa = @[ @"mor",@"aixinho",@"oração",@"ocinho",@"scola",@"eijão",@"ente",@"umano",@"I de igualdade",@"J juventude",@"k de kiko",@" L de liberdade",@"k de kiko",@"M molecagem",@"N natureza ",@"O obrigado ",@"P proteção",@"Q de queijo",@"R de riacho ",@" S sadia ",@" T de Terra",@"U de universo ",@"V de vitoria",@"W de Wolverine",@"X O que que é? - É Xuxa!",@"youtube",@"Z é zum, zum, zum, zum"];
+    frasesAlfa = @[ @"mor",@"aixinho",@"oração",@"ocinho",@"scola",@"eijão",@"ente",@"umano",@"gualdade",@"etski",@"iko",@" iberdade",@"acaco",@"atureza ",@"brigado ",@"roteção",@"ueijo",@"iacho ",@" adia ",@" erra",@"niverso ",@"itoria",@"olverine",@"uxa!",@"outube",@"ebra"];
     
     imagensAlfa = @[@"arvore", @"bola", @"casa",@"dado",@"elefante",@"fanta",@"gordo",@"hidrante",@"iphone",@"jetski",@"kiko", @"leao", @"macaco", @"nariz",@"orelha", @"palhaco",@"queijo",@"requeijao", @"sal", @"tatu",@"umpa",@"vitoria", @"wolverine", @"xuxa", @"youtube",@"zebra"];
     
     
-    indexx  = self.navigationController.viewControllers.count-1;
+    indexx  = (int)(self.navigationController.viewControllers.count-1);
     self.title = [alfabeto objectAtIndex: indexx];
     UIBarButtonItem *next = [[UIBarButtonItem alloc]
                              initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem=next;
  
-    UILabel *letralabel = [[UILabel alloc]init];
+    letralabel = [[UILabel alloc]init];
   
     [letralabel setText:[alfabeto objectAtIndex:indexx]];
     letralabel.textAlignment = NSTextAlignmentCenter;
-    letralabel.backgroundColor = [UIColor redColor];
+    
   
     //letra na tela
-   letralabel.frame = CGRectMake( selfWidth/2 - 25, selfHeight/2 - 150, 50, 50);
+   letralabel.frame = CGRectMake( selfWidth/2 - 70, 0, 50, 50);
     [letralabel setFont:[UIFont fontWithName:@"American Typewriter" size:50]];
     [self.view addSubview:letralabel];
     
@@ -49,33 +58,32 @@
     UILabel *fraseLabel = [[UILabel alloc]init];
     [fraseLabel setText:[frasesAlfa objectAtIndex:indexx]];
     fraseLabel.textAlignment = NSTextAlignmentCenter;
-    fraseLabel.frame = CGRectMake(selfWidth/2 - 100, selfHeight/2 - 20, 200, 40);
-    fraseLabel.backgroundColor = [UIColor redColor];
+    fraseLabel.frame = CGRectMake(selfWidth/2 - 100, selfHeight/2 - 80, 200, 40);
+  
 //    [fraseLabel sizeToFit];
     [self.view addSubview:fraseLabel];
 
     //imagem na tela
     
-    UIImage *myImage = [UIImage imageNamed:[imagensAlfa objectAtIndex:indexx]];
-    UIImageView *myImageView = [[UIImageView alloc] initWithImage:myImage];
+    UIImage* myImage = [UIImage imageNamed:[imagensAlfa objectAtIndex:indexx]];
+    myimageview = [[UIImageView alloc] initWithImage:myImage];
     fraseLabel.textAlignment = NSTextAlignmentCenter;
-    [myImageView setFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 + 50, 200, 200)];
-    [self.view addSubview:myImageView];
-  
+   [myimageview setFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 +50, 200, 200)];
+    [self.view addSubview:myimageview];
+    [self setNeedsStatusBarAppearanceUpdate];
+    [myimageview setAlpha:0];
+
     
 //mudancas na view
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    UIImageView *imagem = [[UIImageView alloc] initWithFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 - 100,200,200)];
-//      
-//    imagem.image = [UIImage imageNamed:@"arvore"];
-//    //[imagensAlfa objectAtIndex: indexx]];
-    
+//Botões
 
      }
 
 -(void)viewWillAppear:(BOOL)animated
 {}
+
 -(void)next:(id)sender {
     if (indexx ==25) {
         indexx = 0;
@@ -100,4 +108,48 @@
 }
 
 
+
+    
+-(void)viewDidAppear:(BOOL)animated
+{   //animacao da imagem
+    CGFloat selfHeight=self.view.bounds.size.height;
+    CGFloat selfWidth=self.view.bounds.size.width;
+   
+    [UIView animateWithDuration:1 delay:0.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [myimageview setAlpha:1];
+    } completion:^(BOOL finished){
+        
+        
+    }];
+    
+    // animacao da letra
+
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 90);
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{ letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 -120);} completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 90);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{ letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 -100);} completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 90);
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }];
+
+            
+        }];
+        }];
+        
+    }];
+}
+
+
+
+
+
 @end
+
+

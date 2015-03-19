@@ -18,6 +18,11 @@
                                            bundle:nil];
     
     
+//    UITabBarController*tabBarController = [[UITabBarController alloc]init];
+//    tabBarController.viewControllers = @[viewController];
+//    
+//    [tabBarController.tabBar.items.object]
+    
     self.navigationController = [[UINavigationController alloc]
                                  initWithRootViewController:viewController];
     self.window = [[UIWindow alloc]

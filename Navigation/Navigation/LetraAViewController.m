@@ -14,9 +14,7 @@
 @synthesize frasesAlfa;
 @synthesize imagensAlfa;
 -(void) viewDidLoad {
-        [super viewDidLoad];
-    
-    CGFloat selfHeight=self.view.bounds.size.height;
+        [super viewDidLoad];    CGFloat selfHeight=self.view.bounds.size.height;
     CGFloat selfWidth=self.view.bounds.size.width;
     alfabeto =[[NSArray alloc]init];
     frasesAlfa = [[NSArray alloc]init];
@@ -25,7 +23,7 @@
     
     alfabeto = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
     
-    frasesAlfa = @[ @"A de amor",@"B de baixinho",@"C de coração",@"D de docinho",@"E de escola",@"F de feijão",@"G de gente",@"H de humano",@"I de igualdade",@"J juventude",@"k de kiko",@" L de liberdade",@"k de kiko",@"M molecagem",@"N natureza ",@"O obrigado ",@"P proteção",@"Q de queijo",@"R de riacho ",@" S sadia ",@" T de Terra",@"U de universo ",@"V de vitoria",@"W de Wolverine",@"X O que que é? - É Xuxa!",@"youtube",@"Z é zum, zum, zum, zum"];
+    frasesAlfa = @[ @"mor",@"aixinho",@"oração",@"ocinho",@"scola",@"eijão",@"ente",@"umano",@"I de igualdade",@"J juventude",@"k de kiko",@" L de liberdade",@"k de kiko",@"M molecagem",@"N natureza ",@"O obrigado ",@"P proteção",@"Q de queijo",@"R de riacho ",@" S sadia ",@" T de Terra",@"U de universo ",@"V de vitoria",@"W de Wolverine",@"X O que que é? - É Xuxa!",@"youtube",@"Z é zum, zum, zum, zum"];
     
     imagensAlfa = @[@"arvore", @"bola", @"casa",@"dado",@"elefante",@"fanta",@"gordo",@"hidrante",@"iphone",@"jetski",@"kiko", @"leao", @"macaco", @"nariz",@"orelha", @"palhaco",@"queijo",@"requeijao", @"sal", @"tatu",@"umpa",@"vitoria", @"wolverine", @"xuxa", @"youtube",@"zebra"];
     
@@ -35,8 +33,7 @@
     UIBarButtonItem *next = [[UIBarButtonItem alloc]
                              initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem=next;
-    
-  
+ 
     UILabel *letralabel = [[UILabel alloc]init];
   
     [letralabel setText:[alfabeto objectAtIndex:indexx]];
@@ -45,7 +42,7 @@
   
     //letra na tela
    letralabel.frame = CGRectMake( selfWidth/2 - 25, selfHeight/2 - 150, 50, 50);
-
+    [letralabel setFont:[UIFont fontWithName:@"American Typewriter" size:50]];
     [self.view addSubview:letralabel];
     
     //frase na tela
@@ -53,7 +50,8 @@
     [fraseLabel setText:[frasesAlfa objectAtIndex:indexx]];
     fraseLabel.textAlignment = NSTextAlignmentCenter;
     fraseLabel.frame = CGRectMake(selfWidth/2 - 100, selfHeight/2 - 20, 200, 40);
-    [fraseLabel sizeToFit];
+    fraseLabel.backgroundColor = [UIColor redColor];
+//    [fraseLabel sizeToFit];
     [self.view addSubview:fraseLabel];
 
     //imagem na tela
@@ -65,6 +63,9 @@
     [self.view addSubview:myImageView];
   
     
+//mudancas na view
+    self.view.backgroundColor = [UIColor whiteColor];
+    
 //    UIImageView *imagem = [[UIImageView alloc] initWithFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 - 100,200,200)];
 //      
 //    imagem.image = [UIImage imageNamed:@"arvore"];
@@ -73,9 +74,13 @@
 
      }
 
-
+-(void)viewWillAppear:(BOOL)animated
+{}
 -(void)next:(id)sender {
-    
+    if (indexx ==25) {
+        indexx = 0;
+        [self. navigationController popToRootViewControllerAnimated:YES];
+    }
     
     LetraAViewController *proximo = [[LetraAViewController alloc]
                                               initWithNibName:nil

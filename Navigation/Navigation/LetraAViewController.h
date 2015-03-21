@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "dicionario.h"
 
 @interface LetraAViewController : UIViewController
 {
     int indexx;
+    NSMutableArray *todasLetras;
+    dicionario *dicionario1;
+    alfabeto *letraAtual;
     
 }
 @property (strong,nonatomic) NSArray *alfabeto;
@@ -20,4 +24,6 @@
 @property (strong, nonatomic)  UIImageView *myimageview;
 @property (strong, nonatomic)  UILabel *letralabel;
 
+-(NSArray *)getAlpha;
++(instancetype)sharedInstance;
 @end

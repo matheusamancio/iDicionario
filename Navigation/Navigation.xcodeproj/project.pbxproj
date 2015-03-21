@@ -20,6 +20,10 @@
 		27156F7018B76AF50053A99C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27156F6E18B76AF50053A99C /* InfoPlist.strings */; };
 		27156F7218B76AF50053A99C /* NavigationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7118B76AF50053A99C /* NavigationTests.m */; };
 		27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7C18BA89430053A99C /* LetraAViewController.m */; };
+		DD33D1DC1ABB878E00F1F6E7 /* MackenzieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD33D1DB1ABB878E00F1F6E7 /* MackenzieTableViewController.m */; };
+		DD33D1DF1ABB87BD00F1F6E7 /* MackenzieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD33D1DE1ABB87BD00F1F6E7 /* MackenzieTableViewCell.m */; };
+		DD33D1E21ABC5D8200F1F6E7 /* alfabeto.m in Sources */ = {isa = PBXBuildFile; fileRef = DD33D1E11ABC5D8200F1F6E7 /* alfabeto.m */; };
+		DD33D1E51ABCCCFD00F1F6E7 /* dicionario.m in Sources */ = {isa = PBXBuildFile; fileRef = DD33D1E41ABCCCFD00F1F6E7 /* dicionario.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		27156F7118B76AF50053A99C /* NavigationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationTests.m; sourceTree = "<group>"; };
 		27156F7B18BA89430053A99C /* LetraAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetraAViewController.h; sourceTree = "<group>"; };
 		27156F7C18BA89430053A99C /* LetraAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetraAViewController.m; sourceTree = "<group>"; };
+		DD33D1DA1ABB878E00F1F6E7 /* MackenzieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MackenzieTableViewController.h; path = ../MackenzieTableViewController.h; sourceTree = "<group>"; };
+		DD33D1DB1ABB878E00F1F6E7 /* MackenzieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MackenzieTableViewController.m; path = ../MackenzieTableViewController.m; sourceTree = "<group>"; };
+		DD33D1DD1ABB87BD00F1F6E7 /* MackenzieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MackenzieTableViewCell.h; path = ../MackenzieTableViewCell.h; sourceTree = "<group>"; };
+		DD33D1DE1ABB87BD00F1F6E7 /* MackenzieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MackenzieTableViewCell.m; path = ../MackenzieTableViewCell.m; sourceTree = "<group>"; };
+		DD33D1E01ABC5D8200F1F6E7 /* alfabeto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alfabeto.h; sourceTree = "<group>"; };
+		DD33D1E11ABC5D8200F1F6E7 /* alfabeto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = alfabeto.m; sourceTree = "<group>"; };
+		DD33D1E31ABCCCFD00F1F6E7 /* dicionario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dicionario.h; sourceTree = "<group>"; };
+		DD33D1E41ABCCCFD00F1F6E7 /* dicionario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dicionario.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,10 @@
 		27156F4018B76AF50053A99C = {
 			isa = PBXGroup;
 			children = (
+				DD33D1E31ABCCCFD00F1F6E7 /* dicionario.h */,
+				DD33D1E41ABCCCFD00F1F6E7 /* dicionario.m */,
+				DD33D1E01ABC5D8200F1F6E7 /* alfabeto.h */,
+				DD33D1E11ABC5D8200F1F6E7 /* alfabeto.m */,
 				27156F5218B76AF50053A99C /* Navigation */,
 				27156F6B18B76AF50053A99C /* NavigationTests */,
 				27156F4B18B76AF50053A99C /* Frameworks */,
@@ -116,6 +132,10 @@
 				27156F5318B76AF50053A99C /* Supporting Files */,
 				27156F7B18BA89430053A99C /* LetraAViewController.h */,
 				27156F7C18BA89430053A99C /* LetraAViewController.m */,
+				DD33D1DD1ABB87BD00F1F6E7 /* MackenzieTableViewCell.h */,
+				DD33D1DE1ABB87BD00F1F6E7 /* MackenzieTableViewCell.m */,
+				DD33D1DA1ABB878E00F1F6E7 /* MackenzieTableViewController.h */,
+				DD33D1DB1ABB878E00F1F6E7 /* MackenzieTableViewController.m */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -248,6 +268,10 @@
 				27156F5D18B76AF50053A99C /* MackenzieAppDelegate.m in Sources */,
 				27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */,
 				27156F5918B76AF50053A99C /* main.m in Sources */,
+				DD33D1DF1ABB87BD00F1F6E7 /* MackenzieTableViewCell.m in Sources */,
+				DD33D1DC1ABB878E00F1F6E7 /* MackenzieTableViewController.m in Sources */,
+				DD33D1E21ABC5D8200F1F6E7 /* alfabeto.m in Sources */,
+				DD33D1E51ABCCCFD00F1F6E7 /* dicionario.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

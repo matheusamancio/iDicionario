@@ -7,7 +7,8 @@
 //
 
 #import "LetraAViewController.h"
-#import "LetraBViewController.h"
+#import "dicionario.h"
+
 
 @implementation LetraAViewController
 
@@ -20,59 +21,62 @@
 @synthesize letralabel;
 
 
+// criando um botao na tab bar
+
+
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self){
+        self.tabBarItem.title = @"alfabeto";
+    UIImage *imagem = [UIImage imageNamed: @"aa"];
+    self.tabBarItem.image = imagem;
+    }
+    return self;
+}
+
 -(void) viewDidLoad {
     [super viewDidLoad];
     CGFloat selfHeight=self.view.bounds.size.height;
     CGFloat selfWidth=self.view.bounds.size.width;
-    alfabeto =[[NSArray alloc]init];
-    frasesAlfa = [[NSArray alloc]init];
-    imagensAlfa = [[NSArray alloc]init];
-    
-    
-
-    alfabeto = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
-    
-    frasesAlfa = @[ @"mor",@"aixinho",@"oração",@"ocinho",@"scola",@"eijão",@"ente",@"umano",@"gualdade",@"etski",@"iko",@" iberdade",@"acaco",@"atureza ",@"brigado ",@"roteção",@"ueijo",@"iacho ",@" adia ",@" erra",@"niverso ",@"itoria",@"olverine",@"uxa!",@"outube",@"ebra"];
-    
-    imagensAlfa = @[@"arvore", @"bola", @"casa",@"dado",@"elefante",@"fanta",@"gordo",@"hidrante",@"iphone",@"jetski",@"kiko", @"leao", @"macaco", @"nariz",@"orelha", @"palhaco",@"queijo",@"requeijao", @"sal", @"tatu",@"umpa",@"vitoria", @"wolverine", @"xuxa", @"youtube",@"zebra"];
-    
-    
+    dicionario1 = [dicionario sharedInstance];
+    todasLetras = [dicionario1 getcaixa];
     indexx  = (int)(self.navigationController.viewControllers.count-1);
-    self.title = [alfabeto objectAtIndex: indexx];
+    
+    letraAtual = [todasLetras objectAtIndex:indexx];
+
+ 
+    
+    //self.navigationItem.title = [alfabeto objectAtIndex: indexx];
     UIBarButtonItem *next = [[UIBarButtonItem alloc]
                              initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem=next;
  
-    letralabel = [[UILabel alloc]init];
-  
-    [letralabel setText:[alfabeto objectAtIndex:indexx]];
-    letralabel.textAlignment = NSTextAlignmentCenter;
     
-  
-    //letra na tela
-   letralabel.frame = CGRectMake( selfWidth/2 - 70, 0, 50, 50);
+    //letra
+    letralabel = [[UILabel alloc]init];
+    [letralabel setText:letraAtual.letra];
+    letralabel.textAlignment = NSTextAlignmentCenter;
+    letralabel.frame = CGRectMake( selfWidth/2 - 70, 0, 50, 50);
     [letralabel setFont:[UIFont fontWithName:@"American Typewriter" size:50]];
     [self.view addSubview:letralabel];
     
     //frase na tela
     UILabel *fraseLabel = [[UILabel alloc]init];
-    [fraseLabel setText:[frasesAlfa objectAtIndex:indexx]];
+    [fraseLabel setText:letraAtual.frase];
     fraseLabel.textAlignment = NSTextAlignmentCenter;
-    fraseLabel.frame = CGRectMake(selfWidth/2 - 100, selfHeight/2 - 80, 200, 40);
-  
-//    [fraseLabel sizeToFit];
+    fraseLabel.frame = CGRectMake(selfWidth/2 - 100, selfHeight/2 - 100, 200, 40);
     [self.view addSubview:fraseLabel];
 
     //imagem na tela
-    
-    UIImage* myImage = [UIImage imageNamed:[imagensAlfa objectAtIndex:indexx]];
+    UIImage* myImage = [UIImage imageNamed:letraAtual.imagem];
     myimageview = [[UIImageView alloc] initWithImage:myImage];
     fraseLabel.textAlignment = NSTextAlignmentCenter;
-   [myimageview setFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 +50, 200, 200)];
+   [myimageview setFrame:CGRectMake(selfWidth/2 - 100, selfHeight/2 , 200, 200)];
     [self.view addSubview:myimageview];
     [self setNeedsStatusBarAppearanceUpdate];
     [myimageview setAlpha:0];
-
+    
     
 //mudancas na view
     self.view.backgroundColor = [UIColor whiteColor];
@@ -125,15 +129,15 @@
     // animacao da letra
 
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 90);
+        letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 -110);
     } completion:^(BOOL finished){
-        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{ letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 -120);} completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{ letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 -140);} completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 90);
+            letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 110);
         } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{ letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 -100);} completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{ letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 -120);} completion:^(BOOL finished) {
                 [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-                    letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 90);
+                    letralabel.transform = CGAffineTransformMakeTranslation(0, selfHeight/2 - 110);
                 } completion:^(BOOL finished) {
                     
                 }];
@@ -146,6 +150,10 @@
     }];
 }
 
+-(NSArray *)getAlpha
+{
+    return alfabeto;
+}
 
 
 

@@ -8,29 +8,35 @@
 
 #import "MackenzieAppDelegate.h"
 #import "LetraAViewController.h"
+#import "MackenzieTableViewController.h"
+#import "MackenzieTableViewCell.h"
 
 @implementation MackenzieAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    LetraAViewController *viewController = [[LetraAViewController alloc]
-                                           initWithNibName:nil
-                                           bundle:nil];
-    
-    
-//    UITabBarController*tabBarController = [[UITabBarController alloc]init];
-//    tabBarController.viewControllers = @[viewController];
-//    
-//    [tabBarController.tabBar.items.object]
+    self.window = [[UIWindow alloc]initWithFrame: [[UIScreen mainScreen] bounds]];
+     NSBundle *appbundle = [NSBundle mainBundle];
+// letraviewcontroller
+    LetraAViewController *lvc = [[LetraAViewController alloc]
+                                 initWithNibName:nil
+                                 bundle:appbundle];
     
     self.navigationController = [[UINavigationController alloc]
-                                 initWithRootViewController:viewController];
-    self.window = [[UIWindow alloc]
-                   initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
-
-
+                                 initWithRootViewController:lvc];
+ 
+//mackenzietableview controller
+    MackenzieTableViewController *tvc = [[MackenzieTableViewController alloc]init];
+  
     
+//tabbar
+    UITabBarController*tabBarController = [[UITabBarController alloc]init];
+    tabBarController.viewControllers = @[self.navigationController,tvc];
+    self.window.rootViewController = tabBarController;
+    
+    
+    
+//window
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
